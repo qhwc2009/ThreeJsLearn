@@ -11,6 +11,18 @@ export default function Nav() {
         <li>
           <Link to="/Cube">Cube</Link>
         </li>
+        <li>
+          <Link to="/Line">Line</Link>
+        </li>
+        <li>
+          <Link to="/AxisHelper">AxisHelper</Link>
+        </li>
+        <li>
+          <Link to="/OrthographicCamera">OrthographicCamera</Link>
+        </li>
+        <li>
+          <Link to="/PerspectiveCamera">PerspectiveCamera</Link>
+        </li>
       </ul>
     </nav>
   );
