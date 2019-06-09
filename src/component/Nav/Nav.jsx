@@ -23,6 +23,21 @@ export default function Nav() {
         <li>
           <Link to="/PerspectiveCamera">PerspectiveCamera</Link>
         </li>
+        <li>
+          <Link to="/NoLight">NoLight</Link>
+        </li>
+        <li>
+          <Link to="/AmbientLight">AmbientLight</Link>
+        </li>
+        <li>
+          <Link to="/DirectionalLight">DirectionalLight</Link>
+        </li>
+        <li>
+          <Link to="/PointLight">PointLight</Link>
+        </li>
+        <li>
+          <Link to="/Texture">Texture</Link>
+        </li>
       </ul>
     </nav>
   );

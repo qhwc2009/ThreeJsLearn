@@ -49,7 +49,7 @@ export default function OrthographicCamera() {
 
       camera.lookAt(new THREE.Vector3(0, 0, 0));
 
-      scene.add(camera);
+      // scene.add(camera);
 
       // eslint-disable-next-line
       console.log('camera: ', camera);
