@@ -38,6 +38,9 @@ export default function Nav() {
         <li>
           <Link to="/Texture">Texture</Link>
         </li>
+        <li>
+          <Link to="/LearnGeometry">LearnGeometry</Link>
+        </li>
       </ul>
     </nav>
   );
