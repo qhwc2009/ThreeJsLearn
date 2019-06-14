@@ -8,6 +8,7 @@ import './LearnGeometry.scss';
 
 export default function LearnGeometry() {
   const containerDom = useRef(null);
+  const gui = useRef(null);
 
   useEffect(() => {
     let width;
@@ -78,14 +79,43 @@ export default function LearnGeometry() {
       scene.add(object);
     }
 
+    function initTriangleObj() {
+      const geometry = new THREE.Geometry();
+      const material = new THREE.MeshBasicMaterial({
+        vertexColors: THREE.VertexColors,
+      });
+
+      const color1 = new THREE.Color('#00ff00');
+      const color2 = new THREE.Color('#50f0f0');
+      const color3 = new THREE.Color('#4f0fa0');
+
+      const p1 = new THREE.Vector3(300, 0, 0);
+      const p2 = new THREE.Vector3(200, 100, 0);
+      const p3 = new THREE.Vector3(100, 0, 0);
+
+      geometry.vertices.push(p1);
+      geometry.vertices.push(p2);
+      geometry.vertices.push(p3);
+
+      const face = new THREE.Face3(0, 1, 2);
+      face.vertexColors[0] = color1;
+      face.vertexColors[1] = color2;
+      face.vertexColors[2] = color3;
+
+      geometry.faces.push(face);
+
+      const object = new THREE.Mesh(geometry, material);
+      scene.add(object);
+    }
+
     let param;
     function createUI() {
       const ParamObj = function() {
         this.fov = 45;
       };
       param = new ParamObj();
-      const gui = new dat.GUI();
-      gui.add(param, 'fov', 0, 180).name('视角大小');
+      gui.current = new dat.GUI();
+      gui.current.add(param, 'fov', 0, 180).name('视角大小');
     }
 
     function changeFov() {
@@ -109,6 +139,7 @@ export default function LearnGeometry() {
       initCamera();
       initLight();
       initObject();
+      initTriangleObj();
       createUI();
       animation();
     }
@@ -116,6 +147,12 @@ export default function LearnGeometry() {
     if (containerDom.current) {
       threeStart();
     }
+
+    return () => {
+      if (gui.current) {
+        gui.current.destroy();
+      }
+    };
   }, []);
-  return <div ref={containerDom} className="camera" />;
+  return <div ref={containerDom} className="learnGeometry" />;
 }
