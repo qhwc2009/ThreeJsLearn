@@ -44,6 +44,9 @@ export default function Nav() {
         <li>
           <Link to="/GTFLoader">GTFLoader</Link>
         </li>
+        <li>
+          <Link to="/LambertSideLearn">LambertSideLearn</Link>
+        </li>
       </ul>
     </nav>
   );

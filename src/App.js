@@ -14,6 +14,7 @@ import PointLight from 'view/Light/PointLight';
 import Texture from 'view/Texture/Texture';
 import LearnGeometry from 'view/LearnGeometry/LearnGeometry';
 import GTFLoader from 'view/Loader/GTFLoader';
+import LambertSideLearn from 'view/LambertSideLearn/LambertSideLearn';
 
 import './App.scss';
 
@@ -40,6 +41,7 @@ function App() {
         <Route path="/Texture" exact component={Texture} />
         <Route path="/LearnGeometry" exact component={LearnGeometry} />
         <Route path="/GTFLoader" exact component={GTFLoader} />
+        <Route path="/LambertSideLearn" exact component={LambertSideLearn} />
       </div>
     </Router>
   );
