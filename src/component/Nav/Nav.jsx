@@ -41,6 +41,9 @@ export default function Nav() {
         <li>
           <Link to="/LearnGeometry">LearnGeometry</Link>
         </li>
+        <li>
+          <Link to="/GTFLoader">GTFLoader</Link>
+        </li>
       </ul>
     </nav>
   );
