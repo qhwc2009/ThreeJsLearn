@@ -1,4 +1,23 @@
+@import '~antd/dist/antd.css';
 .App {
+  height: 100%;
+  width: 100%;
+}
+
+.layout {
   height: 100vh;
   width: 100vw;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.sider {
+  flex: 0 0 200px;
+  height: 100%;
+  overflow: auto;
+}
+
+.content {
+  flex: 1;
+  height: 100%;
 }

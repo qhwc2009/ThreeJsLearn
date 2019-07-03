@@ -17,7 +17,12 @@ export default function GTFLoader() {
     function initThree() {
       width = containerDom.current.clientWidth;
       height = containerDom.current.clientHeight;
-      renderer = new THREE.WebGLRenderer({ antialias: true });
+      const canvas = document.createElement('canvas');
+      const context = canvas.getContext('webgl2');
+      renderer = new THREE.WebGLRenderer({
+        canvas: canvas,
+        context: context,
+      });
       renderer.setSize(width, height);
       containerDom.current.appendChild(renderer.domElement);
       renderer.setClearColor('#ffffff', 1.0);
@@ -73,7 +78,10 @@ export default function GTFLoader() {
       param = new ParamObj();
       gui.current = new dat.GUI();
       gui.current.add(param, 'fov', 0, 180).name('视角大小');
-      gui.current.add(param, 'rotateY', 0, 7).name('旋转').step(0.01);
+      gui.current
+        .add(param, 'rotateY', 0, 7)
+        .name('旋转')
+        .step(0.01);
     }
 
     function changeFov() {

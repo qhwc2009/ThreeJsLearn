@@ -64,6 +64,10 @@ export default function AxisHelper() {
     }
 
     animate();
+
+    return () => {
+      document.body.removeChild(stats.dom);
+    };
   }, []);
   return <div className="axisHelper" ref={containerDom} />;
 }

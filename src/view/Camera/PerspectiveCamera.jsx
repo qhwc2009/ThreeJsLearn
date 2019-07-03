@@ -8,15 +8,26 @@ import './Camera.scss';
 
 export default function PerspectiveCamera() {
   const containerDom = useRef(null);
+  const gui = useRef(null);
 
   useEffect(() => {
     let width;
     let height;
     let renderer;
 
+    width = containerDom.current.clientWidth;
+    height = containerDom.current.clientHeight;
+
+    const ParamObj = function() {
+      this.fov = 45;
+      this.x = 0;
+      this.y = 0;
+      this.z = 600;
+    };
+
+    const param = new ParamObj();
+
     function initThree() {
-      width = containerDom.current.clientWidth;
-      height = containerDom.current.clientHeight;
       // const canvas = document.createElement('canvas');
       // const context = canvas.getContext('webgl2');
       // renderer = new THREE.WebGLRenderer({
@@ -37,16 +48,13 @@ export default function PerspectiveCamera() {
     let camera;
     function initCamera() {
       camera = new THREE.PerspectiveCamera(45, width / height, 1, 10000);
-      camera.position.set(0, 0, 600);
+      camera.position.set(param.x, param.y, param.z);
 
       camera.up.set(0, 1, 0);
 
       camera.lookAt(new THREE.Vector3(0, 0, 0));
 
       // scene.add(camera);
-
-      // eslint-disable-next-line
-      console.log('camera: ', camera);
     }
 
     let light;
@@ -67,14 +75,12 @@ export default function PerspectiveCamera() {
       console.log('mesh: ', mesh);
     }
 
-    let param;
     function createUI() {
-      const ParamObj = function() {
-        this.fov = 45;
-      };
-      param = new ParamObj();
-      const gui = new dat.GUI();
-      gui.add(param, 'fov', 0, 180).name('视角大小');
+      gui.current = new dat.GUI();
+      gui.current.add(param, 'fov', 0, 180).name('视角大小');
+      gui.current.add(param, 'x', -500, 500).name('摄像机x');
+      gui.current.add(param, 'y', -500, 500).name('摄像机y');
+      gui.current.add(param, 'z', 0, 5000).name('摄像机z');
     }
 
     function changeFov() {
@@ -83,6 +89,8 @@ export default function PerspectiveCamera() {
 
     function setCameraFov(fov) {
       camera.fov = fov;
+      camera.position.set(param.x, param.y, param.z);
+      camera.lookAt(new THREE.Vector3(0, 0, 0));
       camera.updateProjectionMatrix();
     }
 
@@ -105,6 +113,12 @@ export default function PerspectiveCamera() {
     if (containerDom.current) {
       threeStart();
     }
+
+    return () => {
+      if (gui.current) {
+        gui.current.destroy();
+      }
+    };
   }, []);
   return <div ref={containerDom} className="camera" />;
 }

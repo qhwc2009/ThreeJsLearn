@@ -6,6 +6,7 @@ import './NoLight.scss';
 
 export default function AmbientLight() {
   const containerDom = useRef(null);
+  const gui = useRef(null);
 
   useEffect(() => {
     let renderer;
@@ -49,10 +50,10 @@ export default function AmbientLight() {
       };
 
       param = new ParamObj();
-      const gui = new dat.GUI();
-      gui.add(param, 'x', -10000, 10000).name('环境光X的位置');
-      gui.add(param, 'y', -10000, 10000).name('环境光Y的位置');
-      gui.add(param, 'z', -10000, 10000).name('环境光Z的位置');
+      gui.current = new dat.GUI();
+      gui.current.add(param, 'x', -10000, 10000).name('环境光X的位置');
+      gui.current.add(param, 'y', -10000, 10000).name('环境光Y的位置');
+      gui.current.add(param, 'z', -10000, 10000).name('环境光Z的位置');
 
       light = new THREE.AmbientLight('#ffffff');
       light.position.set(param.x, param.y, param.z);
@@ -86,6 +87,12 @@ export default function AmbientLight() {
     if (containerDom.current) {
       threeStart();
     }
+
+    return () => {
+      if (gui.current) {
+        gui.current.destroy();
+      }
+    };
   }, []);
   return <div ref={containerDom} className="no-light" />;
 }
