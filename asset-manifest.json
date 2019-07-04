@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.a1925d2f.chunk.css",
-    "main.js": "/static/js/main.d90d70ae.chunk.js",
-    "main.js.map": "/static/js/main.d90d70ae.chunk.js.map",
-    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
-    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-    "static/css/2.9588f995.chunk.css": "/static/css/2.9588f995.chunk.css",
-    "static/js/2.87b7852f.chunk.js": "/static/js/2.87b7852f.chunk.js",
-    "static/js/2.87b7852f.chunk.js.map": "/static/js/2.87b7852f.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.8d3db490dcf4cfbe71639aa18294e55f.js": "/precache-manifest.8d3db490dcf4cfbe71639aa18294e55f.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.9588f995.chunk.css.map": "/static/css/2.9588f995.chunk.css.map",
-    "static/css/main.a1925d2f.chunk.css.map": "/static/css/main.a1925d2f.chunk.css.map",
-    "static/media/2.jpg": "/static/media/2.95277247.jpg"
+    "main.css": "/ThreeJsLearn/static/css/main.a1925d2f.chunk.css",
+    "main.js": "/ThreeJsLearn/static/js/main.58bd6b54.chunk.js",
+    "main.js.map": "/ThreeJsLearn/static/js/main.58bd6b54.chunk.js.map",
+    "runtime~main.js": "/ThreeJsLearn/static/js/runtime~main.a61b8fef.js",
+    "runtime~main.js.map": "/ThreeJsLearn/static/js/runtime~main.a61b8fef.js.map",
+    "static/css/2.9588f995.chunk.css": "/ThreeJsLearn/static/css/2.9588f995.chunk.css",
+    "static/js/2.ae8f6101.chunk.js": "/ThreeJsLearn/static/js/2.ae8f6101.chunk.js",
+    "static/js/2.ae8f6101.chunk.js.map": "/ThreeJsLearn/static/js/2.ae8f6101.chunk.js.map",
+    "index.html": "/ThreeJsLearn/index.html",
+    "precache-manifest.48d7ae361d654e82f6cb22777fa14cb8.js": "/ThreeJsLearn/precache-manifest.48d7ae361d654e82f6cb22777fa14cb8.js",
+    "service-worker.js": "/ThreeJsLearn/service-worker.js",
+    "static/css/2.9588f995.chunk.css.map": "/ThreeJsLearn/static/css/2.9588f995.chunk.css.map",
+    "static/css/main.a1925d2f.chunk.css.map": "/ThreeJsLearn/static/css/main.a1925d2f.chunk.css.map",
+    "static/media/2.jpg": "/ThreeJsLearn/static/media/2.95277247.jpg"
   }
 }
