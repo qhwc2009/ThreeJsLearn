@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import _ from 'lodash';
 import { Menu } from 'antd';
 
 const pages = [
@@ -87,9 +88,9 @@ function Nav({ location }) {
     if (location.pathname === '/') {
       return '1';
     } else {
-      return pages
+      return _.get(pages
         .slice(1)
-        .find(page => location.pathname.indexOf(page.link) !== -1).key;
+        .find(page => location.pathname.indexOf(page.link) !== -1), 'key', '1');
     }
   }, [location.pathname]);
   return (
