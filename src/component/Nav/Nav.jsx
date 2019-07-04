@@ -1,57 +1,111 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useMemo } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import { Menu } from 'antd';
 
-export default function Nav() {
+const pages = [
+  {
+    key: '1',
+    link: '/',
+    title: 'Home',
+  },
+  {
+    key: '2',
+    link: '/Cube',
+    title: 'Cube',
+  },
+  {
+    key: '3',
+    link: '/Line',
+    title: 'Line',
+  },
+  {
+    key: '4',
+    link: '/AxisHelper',
+    title: 'AxisHelper',
+  },
+  {
+    key: '5',
+    link: '/OrthographicCamera',
+    title: 'OrthographicCamera',
+  },
+  {
+    key: '6',
+    link: '/PerspectiveCamera',
+    title: 'PerspectiveCamera',
+  },
+  {
+    key: '7',
+    link: '/NoLight',
+    title: 'NoLight',
+  },
+  {
+    key: '8',
+    link: '/AmbientLight',
+    title: 'AmbientLight',
+  },
+  {
+    key: '9',
+    link: '/DirectionalLight',
+    title: 'DirectionalLight',
+  },
+  {
+    key: '10',
+    link: '/PointLight',
+    title: 'PointLight',
+  },
+  {
+    key: '11',
+    link: '/Texture',
+    title: 'Texture',
+  },
+  {
+    key: '12',
+    link: '/LearnGeometry',
+    title: 'LearnGeometry',
+  },
+  {
+    key: '13',
+    link: '/GTFLoader',
+    title: 'GTFLoader',
+  },
+  {
+    key: '14',
+    link: '/LambertSideLearn',
+    title: 'LambertSideLearn',
+  },
+  {
+    key: '15',
+    link: '/Jump',
+    title: 'Jump',
+  },
+];
+
+function Nav({ location }) {
+  // eslint-disable-next-line
+  console.log('location: ', location);
+  const defaultKey = useMemo(() => {
+    if (location.pathname === '/') {
+      return '1';
+    } else {
+      return pages
+        .slice(1)
+        .find(page => location.pathname.indexOf(page.link) !== -1).key;
+    }
+  }, [location.pathname]);
   return (
     <Menu
       theme="dark"
-      defaultSelectedKeys={['1']}
+      defaultSelectedKeys={[defaultKey]}
       mode="inline"
       style={{ marginTop: '60px', height: '100%', borderRight: 0 }}
     >
-      <Menu.Item key="1">
-        <Link to="/">Home</Link>
-      </Menu.Item>
-      <Menu.Item key="2">
-        <Link to="/Cube">Cube</Link>
-      </Menu.Item>
-      <Menu.Item key="3">
-        <Link to="/Line">Line</Link>
-      </Menu.Item>
-      <Menu.Item key="4">
-        <Link to="/AxisHelper">AxisHelper</Link>
-      </Menu.Item>
-      <Menu.Item key="5">
-        <Link to="/OrthographicCamera">OrthographicCamera</Link>
-      </Menu.Item>
-      <Menu.Item key="6">
-        <Link to="/PerspectiveCamera">PerspectiveCamera</Link>
-      </Menu.Item>
-      <Menu.Item key="7">
-        <Link to="/NoLight">NoLight</Link>
-      </Menu.Item>
-      <Menu.Item key="8">
-        <Link to="/AmbientLight">AmbientLight</Link>
-      </Menu.Item>
-      <Menu.Item key="9">
-        <Link to="/DirectionalLight">DirectionalLight</Link>
-      </Menu.Item>
-      <Menu.Item key="10">
-        <Link to="/PointLight">PointLight</Link>
-      </Menu.Item>
-      <Menu.Item key="11">
-        <Link to="/Texture">Texture</Link>
-      </Menu.Item>
-      <Menu.Item key="12">
-        <Link to="/LearnGeometry">LearnGeometry</Link>
-      </Menu.Item>
-      <Menu.Item key="13">
-        <Link to="/GTFLoader">GTFLoader</Link>
-      </Menu.Item>
-      <Menu.Item key="14">
-        <Link to="/LambertSideLearn">LambertSideLearn</Link>
-      </Menu.Item>
+      {pages.map(page => (
+        <Menu.Item key={page.key}>
+          <Link to={page.link}>{page.title}</Link>
+        </Menu.Item>
+      ))}
     </Menu>
   );
 }
+
+export default withRouter(Nav);

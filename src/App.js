@@ -18,6 +18,7 @@ import Texture from 'view/Texture/Texture';
 import LearnGeometry from 'view/LearnGeometry/LearnGeometry';
 import GTFLoader from 'view/Loader/GTFLoader';
 import LambertSideLearn from 'view/LambertSideLearn/LambertSideLearn';
+import Jump from 'view/Jump/Jump';
 
 import './App.scss';
 const { Sider, Content } = Layout;
@@ -65,6 +66,11 @@ function App() {
               path="/LambertSideLearn"
               exact
               component={LambertSideLearn}
+            />
+            <Route
+              path="/Jump"
+              exact
+              component={Jump}
             />
           </div>
         </Content>

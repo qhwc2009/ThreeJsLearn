@@ -37,7 +37,7 @@ export default function NoLight() {
       camera.lookAt(new THREE.Vector3(0, 0, 0)); // 必须用Vector来生成位置
     };
 
-    let light;
+    // let light;
     const initLight = () => {
       // light = new THREE.DirectionalLight('#ff0000', 1.0, 0);
       // light.position.set(100, 100, 200);
