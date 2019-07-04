@@ -31,7 +31,7 @@ function App() {
   }, []);
 
   return (
-    <Router>
+    <Router basename="/ThreeJsLearn">
       <Layout className="layout">
         <Sider className="sider">
           <Nav />
